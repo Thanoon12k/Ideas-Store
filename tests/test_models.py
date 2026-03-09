@@ -2,6 +2,7 @@
 Tests for Ideas Store models.
 """
 from django.test import TestCase
+from django.contrib.auth.models import User
 from django.core.files.uploadedfile import SimpleUploadedFile
 from ideas.models import Idea, IdeaImage
 
@@ -11,7 +12,9 @@ class IdeaModelTest(TestCase):
 
     def setUp(self):
         """Create a test idea."""
+        self.user = User.objects.create_user(username='testuser', password='testpass123')
         self.idea = Idea.objects.create(
+            user=self.user,
             title='Test Idea',
             description='This is a test idea with a link https://example.com'
         )
@@ -31,7 +34,7 @@ class IdeaModelTest(TestCase):
         """Test that ideas are ordered by newest first (by created_at desc)."""
         import time
         time.sleep(0.1)  # Ensure different timestamps
-        idea2 = Idea.objects.create(title='Second Idea')
+        idea2 = Idea.objects.create(user=self.user, title='Second Idea')
         ideas = list(Idea.objects.all())
         # idea2 was created later, should appear first
         self.assertEqual(ideas[0].title, 'Second Idea')
@@ -39,7 +42,7 @@ class IdeaModelTest(TestCase):
 
     def test_idea_blank_fields(self):
         """Test that voice_note and description can be blank."""
-        idea = Idea.objects.create(title='Minimal Idea')
+        idea = Idea.objects.create(user=self.user, title='Minimal Idea')
         self.assertEqual(idea.description, '')
         self.assertFalse(idea.voice_note)
 
@@ -48,6 +51,7 @@ class IdeaModelTest(TestCase):
         audio_content = b'\x00\x01\x02\x03'  # Dummy audio data
         voice = SimpleUploadedFile('test_voice.webm', audio_content, content_type='audio/webm')
         idea = Idea.objects.create(
+            user=self.user,
             title='Voice Idea',
             voice_note=voice
         )
@@ -67,7 +71,8 @@ class IdeaImageModelTest(TestCase):
 
     def setUp(self):
         """Create a test idea and image."""
-        self.idea = Idea.objects.create(title='Test Idea')
+        self.user = User.objects.create_user(username='imguser', password='testpass123')
+        self.idea = Idea.objects.create(user=self.user, title='Test Idea')
         image_data = (
             b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR'
             b'\x00\x00\x00\x01\x00\x00\x00\x01\x08\x02'

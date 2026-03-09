@@ -12,8 +12,8 @@ class IdeaImageInline(admin.TabularInline):
 
 @admin.register(Idea)
 class IdeaAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'updated_at')
-    list_filter = ('created_at',)
+    list_display = ('title', 'user', 'created_at', 'updated_at')
+    list_filter = ('created_at', 'user')
     search_fields = ('title', 'description')
     inlines = [IdeaImageInline]
     readonly_fields = ('created_at', 'updated_at')

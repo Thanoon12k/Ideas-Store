@@ -15,7 +15,9 @@ def idea_create(request):
     if request.method == 'POST':
         form = IdeaForm(request.POST, request.FILES)
         if form.is_valid():
-            idea = form.save()
+            idea = form.save(commit=False)
+            idea.user = request.user
+            idea.save()
 
             # Handle multiple image uploads
             images = request.FILES.getlist('images')
@@ -34,21 +36,21 @@ def idea_create(request):
 @login_required
 def idea_list(request):
     """Browse all saved ideas, newest first."""
-    ideas = Idea.objects.prefetch_related('images').all()
+    ideas = Idea.objects.prefetch_related('images').filter(user=request.user)
     return render(request, 'ideas/idea_list.html', {'ideas': ideas})
 
 
 @login_required
 def idea_detail(request, pk):
     """View a single idea with all its media."""
-    idea = get_object_or_404(Idea.objects.prefetch_related('images'), pk=pk)
+    idea = get_object_or_404(Idea.objects.prefetch_related('images'), pk=pk, user=request.user)
     return render(request, 'ideas/idea_detail.html', {'idea': idea})
 
 
 @login_required
 def idea_delete(request, pk):
     """Delete an idea with confirmation."""
-    idea = get_object_or_404(Idea, pk=pk)
+    idea = get_object_or_404(Idea, pk=pk, user=request.user)
     if request.method == 'POST':
         idea.delete()
         messages.success(request, _('Idea deleted.'))
@@ -59,7 +61,7 @@ def idea_delete(request, pk):
 @login_required
 def idea_edit(request, pk):
     """Edit an existing idea."""
-    idea = get_object_or_404(Idea, pk=pk)
+    idea = get_object_or_404(Idea, pk=pk, user=request.user)
     if request.method == 'POST':
         form = IdeaForm(request.POST, request.FILES, instance=idea)
         if form.is_valid():
@@ -86,7 +88,7 @@ def idea_edit(request, pk):
 @login_required
 def idea_image_delete(request, pk):
     """Delete a single image from an idea."""
-    image = get_object_or_404(IdeaImage, pk=pk)
+    image = get_object_or_404(IdeaImage, pk=pk, idea__user=request.user)
     idea_pk = image.idea.pk
     if request.method == 'POST':
         image.delete()

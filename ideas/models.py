@@ -1,12 +1,19 @@
 """
 Models for the Ideas Store application.
 """
+from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
 class Idea(models.Model):
     """Represents a single idea with optional voice note."""
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='ideas',
+        verbose_name=_('User')
+    )
     title = models.CharField(
         _('Title'),
         max_length=200,

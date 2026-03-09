@@ -23,6 +23,7 @@ class APITestBase(TestCase):
         self.client.force_authenticate(user=self.user)
 
         self.idea = Idea.objects.create(
+            user=self.user,
             title='API Test Idea',
             description='Test from API'
         )

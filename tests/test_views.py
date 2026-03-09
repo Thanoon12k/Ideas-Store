@@ -21,6 +21,7 @@ class ViewTestBase(TestCase):
         self.client.login(username='testuser', password='testpass123!')
 
         self.idea = Idea.objects.create(
+            user=self.user,
             title='Test Idea',
             description='Test description with https://example.com link'
         )
