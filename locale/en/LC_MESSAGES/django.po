@@ -1,0 +1,216 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Ideas Store 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# English translations (identity mapping for most, but included for completeness)
+
+msgid "Fikra"
+msgstr "Fikra"
+
+msgid "New"
+msgstr "New"
+
+msgid "Ideas"
+msgstr "Ideas"
+
+msgid "My Ideas"
+msgstr "My Ideas"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Fikra — Ideas Store"
+msgstr "Fikra — Ideas Store"
+
+msgid "Capture and organize your ideas for the future"
+msgstr "Capture and organize your ideas for the future"
+
+msgid "New Idea"
+msgstr "New Idea"
+
+msgid "Edit Idea"
+msgstr "Edit Idea"
+
+msgid "What are you thinking?"
+msgstr "What are you thinking?"
+
+msgid "Refine Your Idea"
+msgstr "Refine Your Idea"
+
+msgid "Capture it before it fades away"
+msgstr "Capture it before it fades away"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "What's your idea?"
+msgstr "What's your idea?"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Describe your idea... (URLs will be clickable)"
+msgstr "Describe your idea... (URLs will be clickable)"
+
+msgid "URLs will become clickable links automatically"
+msgstr "URLs will become clickable links automatically"
+
+msgid "Voice Note"
+msgstr "Voice Note"
+
+msgid "Record"
+msgstr "Record"
+
+msgid "Remove voice"
+msgstr "Remove voice"
+
+msgid "Current voice note:"
+msgstr "Current voice note:"
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Click or drag images here"
+msgstr "Click or drag images here"
+
+msgid "Max 5 MB each"
+msgstr "Max 5 MB each"
+
+msgid "Current images:"
+msgstr "Current images:"
+
+msgid "Save Idea"
+msgstr "Save Idea"
+
+msgid "Update Idea"
+msgstr "Update Idea"
+
+msgid "Your idea has been saved! 💡"
+msgstr "Your idea has been saved! 💡"
+
+msgid "Idea updated! 💡"
+msgstr "Idea updated! 💡"
+
+msgid "Image removed."
+msgstr "Image removed."
+
+msgid "Voice"
+msgstr "Voice"
+
+msgid "image"
+msgstr "image"
+
+msgid "images"
+msgstr "images"
+
+msgid "No ideas yet. Start capturing!"
+msgstr "No ideas yet. Start capturing!"
+
+msgid "Back to Ideas"
+msgstr "Back to Ideas"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Last updated:"
+msgstr "Last updated:"
+
+msgid "Your browser does not support audio playback."
+msgstr "Your browser does not support audio playback."
+
+msgid "Delete this idea?"
+msgstr "Delete this idea?"
+
+msgid "This action cannot be undone."
+msgstr "This action cannot be undone."
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Idea deleted."
+msgstr "Idea deleted."
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Sign in to capture your ideas"
+msgstr "Sign in to capture your ideas"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Sign In"
+msgstr "Sign In"
+
+msgid "Invalid username or password."
+msgstr "Invalid username or password."
+
+msgid "Capture today, build tomorrow"
+msgstr "Capture today, build tomorrow"
+
+msgid "Give your idea a short, descriptive title."
+msgstr "Give your idea a short, descriptive title."
+
+msgid "Describe your idea in detail. URLs will be auto-linked."
+msgstr "Describe your idea in detail. URLs will be auto-linked."
+
+msgid "Record or upload a voice note for this idea."
+msgstr "Record or upload a voice note for this idea."
+
+msgid "Created"
+msgstr "Created"
+
+msgid "Updated"
+msgstr "Updated"
+
+msgid "Idea"
+msgstr "Idea"
+
+msgid "Idea Image"
+msgstr "Idea Image"
+
+msgid "Idea Images"
+msgstr "Idea Images"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Caption"
+msgstr "Caption"
+
+msgid "Caption (optional)"
+msgstr "Caption (optional)"
+
+msgid "Uploaded"
+msgstr "Uploaded"
+
+msgid "Voice note must be less than 10 MB."
+msgstr "Voice note must be less than 10 MB."
+
+msgid "Image must be less than 5 MB."
+msgstr "Image must be less than 5 MB."
+
+msgid "%(counter)s idea captured"
+msgid_plural "%(counter)s ideas captured"
+msgstr[0] "%(counter)s idea captured"
+msgstr[1] "%(counter)s ideas captured"

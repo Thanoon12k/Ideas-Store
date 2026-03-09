@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load i18n idea_filters %}
+
+{% block title %}{% trans 'My Ideas' %} — {% trans 'Fikra' %}{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto px-4 py-8">
+
+    <!-- Header -->
+    <div class="text-center mb-8">
+        <h1 class="text-xl font-semibold text-stone-700 mb-1">{% trans 'My Ideas' %}</h1>
+        <p class="text-sm text-stone-400">
+            {% blocktrans count counter=ideas|length %}{{ counter }} idea captured{% plural %}{{ counter }} ideas captured{% endblocktrans %}
+        </p>
+    </div>
+
+    {% if ideas %}
+    <div class="space-y-4">
+        {% for idea in ideas %}
+        <a href="{% url 'idea_detail' idea.pk %}"
+           class="block bg-white/60 backdrop-blur-sm rounded-2xl border border-sand-200/80
+                  p-5 shadow-sm hover:shadow-md hover:border-sand-300 transition-all group">
+
+            <!-- Title & Date -->
+            <div class="flex items-start justify-between gap-3 mb-2">
+                <h2 class="text-base font-semibold text-stone-700 group-hover:text-warm-600 transition-colors leading-snug">
+                    {{ idea.title }}
+                </h2>
+                <time class="text-xs text-stone-400 whitespace-nowrap mt-0.5" datetime="{{ idea.created_at|date:'c' }}">
+                    {{ idea.created_at|date:"M d, Y" }}
+                </time>
+            </div>
+
+            <!-- Description snippet -->
+            {% if idea.description %}
+            <p class="text-sm text-stone-500 leading-relaxed mb-3">
+                {{ idea.description|truncate_words_smart:25 }}
+            </p>
+            {% endif %}
+
+            <!-- Media indicators -->
+            <div class="flex items-center gap-3 text-xs text-stone-400">
+                {% if idea.voice_note %}
+                <span class="flex items-center gap-1">
+                    <span>🎙️</span> {% trans 'Voice' %}
+                </span>
+                {% endif %}
+                {% if idea.images.count > 0 %}
+                <span class="flex items-center gap-1">
+                    <span>📷</span> {{ idea.images.count }}
+                    {% if idea.images.count == 1 %}{% trans 'image' %}{% else %}{% trans 'images' %}{% endif %}
+                </span>
+                {% endif %}
+            </div>
+
+            <!-- Thumbnail strip -->
+            {% if idea.images.all %}
+            <div class="mt-3 flex gap-1.5 overflow-x-auto">
+                {% for img in idea.images.all|slice:":4" %}
+                <img src="{{ img.image.url }}" alt="{{ img.caption }}"
+                     class="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-sand-200">
+                {% endfor %}
+                {% if idea.images.count > 4 %}
+                <div class="w-12 h-12 rounded-lg bg-sand-200/60 flex items-center justify-center flex-shrink-0 text-xs text-stone-500">
+                    +{{ idea.images.count|add:"-4" }}
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+        </a>
+        {% endfor %}
+    </div>
+    {% else %}
+    <!-- Empty State -->
+    <div class="text-center py-16">
+        <span class="text-5xl mb-4 block float-anim">💭</span>
+        <p class="text-stone-400 mb-4">{% trans 'No ideas yet. Start capturing!' %}</p>
+        <a href="{% url 'idea_create' %}"
+           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
+                  bg-gradient-to-r from-warm-400 to-warm-500 text-white font-medium
+                  hover:from-warm-500 hover:to-warm-600 transition-all shadow-sm hover:shadow-md">
+            ✨ {% trans 'New Idea' %}
+        </a>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

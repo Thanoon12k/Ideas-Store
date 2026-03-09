@@ -1,0 +1,39 @@
+/* Custom CSS for Ideas Store (Fikra) */
+/* Most styling is handled by Tailwind CSS via CDN */
+
+/* Smooth transitions for all interactive elements */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure images maintain aspect ratio */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Custom audio player styling */
+audio::-webkit-media-controls-panel {
+    background-color: #f5f0e8;
+}
+
+audio::-webkit-media-controls-play-button {
+    color: #978367;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+    outline: 2px solid #eda24f;
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Print styles */
+@media print {
+    nav, footer, .no-print {
+        display: none !important;
+    }
+    body {
+        background: white;
+    }
+}

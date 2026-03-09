@@ -1,0 +1,196 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% trans 'Capture and organize your ideas for the future' %}">
+    <title>{% block title %}{% trans 'Fikra — Ideas Store' %}{% endblock %}</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sand: {
+                            50: '#faf8f4',
+                            100: '#f5f0e8',
+                            200: '#e8dfd3',
+                            300: '#d9ccba',
+                            400: '#c4b49c',
+                            500: '#b09d80',
+                            600: '#978367',
+                            700: '#7d6c55',
+                            800: '#655748',
+                            900: '#53483d',
+                        },
+                        warm: {
+                            50: '#fef9f0',
+                            100: '#fdf0d9',
+                            200: '#f9ddb3',
+                            300: '#f4c482',
+                            400: '#eda24f',
+                            500: '#e8882b',
+                            600: '#d97021',
+                            700: '#b4561c',
+                            800: '#90441e',
+                            900: '#753a1c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans Arabic', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans Arabic', sans-serif;
+        }
+
+        /* Subtle floating animation for the lightbulb */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+        .float-anim {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Gentle glow pulse */
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        .glow-pulse {
+            animation: glow-pulse 2.5s ease-in-out infinite;
+        }
+
+        /* Smooth page transitions */
+        .page-enter {
+            animation: fadeInUp 0.4s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Recording pulse */
+        @keyframes rec-pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.7; }
+        }
+        .rec-pulse {
+            animation: rec-pulse 1s ease-in-out infinite;
+        }
+
+        /* RTL adjustments */
+        [dir="rtl"] .rtl-flip {
+            transform: scaleX(-1);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f5f0e8; }
+        ::-webkit-scrollbar-thumb { background: #d9ccba; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c4b49c; }
+    </style>
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-sand-50 text-stone-800 min-h-screen">
+
+    <!-- Minimal Navigation -->
+    <nav class="sticky top-0 z-50 bg-sand-50/80 backdrop-blur-md border-b border-sand-200/50">
+        <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="{% url 'idea_create' %}" class="flex items-center gap-2 group">
+                <span class="text-2xl float-anim inline-block">💡</span>
+                <span class="text-lg font-semibold text-stone-700 group-hover:text-warm-600 transition-colors">
+                    {% trans 'Fikra' %}
+                </span>
+            </a>
+
+            <!-- Nav links -->
+            <div class="flex items-center gap-3">
+                <a href="{% url 'idea_create' %}"
+                   class="text-sm px-3 py-1.5 rounded-lg text-stone-600 hover:bg-sand-200/60 hover:text-stone-800 transition-all"
+                   title="{% trans 'New Idea' %}">
+                    <span class="text-base">✨</span>
+                    <span class="hidden sm:inline {% if LANGUAGE_CODE == 'ar' %}mr-1{% else %}ml-1{% endif %}">{% trans 'New' %}</span>
+                </a>
+                <a href="{% url 'idea_list' %}"
+                   class="text-sm px-3 py-1.5 rounded-lg text-stone-600 hover:bg-sand-200/60 hover:text-stone-800 transition-all"
+                   title="{% trans 'My Ideas' %}">
+                    <span class="text-base">📋</span>
+                    <span class="hidden sm:inline {% if LANGUAGE_CODE == 'ar' %}mr-1{% else %}ml-1{% endif %}">{% trans 'Ideas' %}</span>
+                </a>
+
+                <!-- Language Toggle -->
+                <form method="post" action="{% url 'set_language' %}" class="inline">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    {% if LANGUAGE_CODE == 'ar' %}
+                        <button type="submit" name="language" value="en"
+                            class="text-xs px-2.5 py-1 rounded-full bg-sand-200/60 text-stone-600 hover:bg-sand-300/60 transition-all font-medium">
+                            EN
+                        </button>
+                    {% else %}
+                        <button type="submit" name="language" value="ar"
+                            class="text-xs px-2.5 py-1 rounded-full bg-sand-200/60 text-stone-600 hover:bg-sand-300/60 transition-all font-medium">
+                            عربي
+                        </button>
+                    {% endif %}
+                </form>
+
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}"
+                       class="text-xs px-2.5 py-1 rounded-full text-stone-500 hover:text-stone-700 transition-colors"
+                       title="{% trans 'Logout' %}">
+                        {% trans 'Logout' %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Messages -->
+    {% if messages %}
+    <div class="max-w-2xl mx-auto px-4 mt-3">
+        {% for message in messages %}
+        <div class="mb-2 px-4 py-3 rounded-xl text-sm
+            {% if message.tags == 'success' %}bg-green-50 text-green-800 border border-green-200
+            {% elif message.tags == 'error' %}bg-red-50 text-red-800 border border-red-200
+            {% else %}bg-sand-200/60 text-stone-700 border border-sand-300{% endif %}
+            flex items-center justify-between" role="alert">
+            <span>{{ message }}</span>
+            <button onclick="this.parentElement.remove()" class="text-stone-400 hover:text-stone-600 {% if LANGUAGE_CODE == 'ar' %}mr-2{% else %}ml-2{% endif %}">&times;</button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <main class="page-enter">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 pb-6 text-center">
+        <p class="text-xs text-stone-400">
+            {% trans 'Capture today, build tomorrow' %} ✨
+        </p>
+    </footer>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

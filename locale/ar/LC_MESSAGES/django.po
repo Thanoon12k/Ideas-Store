@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Ideas Store 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+# Navigation
+msgid "Fikra"
+msgstr "فِكْرة"
+
+msgid "New"
+msgstr "جديدة"
+
+msgid "Ideas"
+msgstr "الأفكار"
+
+msgid "My Ideas"
+msgstr "أفكاري"
+
+msgid "Logout"
+msgstr "تسجيل خروج"
+
+msgid "Fikra — Ideas Store"
+msgstr "فِكْرة — مخزن الأفكار"
+
+msgid "Capture and organize your ideas for the future"
+msgstr "سجّل ونظّم أفكارك للمستقبل"
+
+# Idea Form
+msgid "New Idea"
+msgstr "فكرة جديدة"
+
+msgid "Edit Idea"
+msgstr "تعديل الفكرة"
+
+msgid "What are you thinking?"
+msgstr "بماذا تفكر؟"
+
+msgid "Refine Your Idea"
+msgstr "حسّن فكرتك"
+
+msgid "Capture it before it fades away"
+msgstr "سجّلها قبل أن تتلاشى"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "What's your idea?"
+msgstr "ما فكرتك؟"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Describe your idea... (URLs will be clickable)"
+msgstr "اوصف فكرتك... (الروابط ستكون قابلة للنقر)"
+
+msgid "URLs will become clickable links automatically"
+msgstr "الروابط ستصبح قابلة للنقر تلقائياً"
+
+msgid "Voice Note"
+msgstr "ملاحظة صوتية"
+
+msgid "Record"
+msgstr "تسجيل"
+
+msgid "Remove voice"
+msgstr "إزالة الصوت"
+
+msgid "Current voice note:"
+msgstr "الملاحظة الصوتية الحالية:"
+
+msgid "Images"
+msgstr "الصور"
+
+msgid "Click or drag images here"
+msgstr "اضغط أو اسحب الصور هنا"
+
+msgid "Max 5 MB each"
+msgstr "الحد الأقصى 5 ميغابايت لكل صورة"
+
+msgid "Current images:"
+msgstr "الصور الحالية:"
+
+msgid "Save Idea"
+msgstr "حفظ الفكرة"
+
+msgid "Update Idea"
+msgstr "تحديث الفكرة"
+
+msgid "Your idea has been saved! 💡"
+msgstr "تم حفظ فكرتك! 💡"
+
+msgid "Idea updated! 💡"
+msgstr "تم تحديث الفكرة! 💡"
+
+msgid "Image removed."
+msgstr "تم إزالة الصورة."
+
+# Ideas List
+msgid "Voice"
+msgstr "صوت"
+
+msgid "image"
+msgstr "صورة"
+
+msgid "images"
+msgstr "صور"
+
+msgid "No ideas yet. Start capturing!"
+msgstr "لا توجد أفكار بعد. ابدأ بالتسجيل!"
+
+# Idea Detail
+msgid "Back to Ideas"
+msgstr "العودة إلى الأفكار"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Last updated:"
+msgstr "آخر تحديث:"
+
+msgid "Your browser does not support audio playback."
+msgstr "متصفحك لا يدعم تشغيل الصوت."
+
+# Delete Confirmation
+msgid "Delete this idea?"
+msgstr "حذف هذه الفكرة؟"
+
+msgid "This action cannot be undone."
+msgstr "لا يمكن التراجع عن هذا الإجراء."
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Idea deleted."
+msgstr "تم حذف الفكرة."
+
+# Login
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+msgid "Sign in to capture your ideas"
+msgstr "سجّل دخولك لتسجيل أفكارك"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Sign In"
+msgstr "دخول"
+
+msgid "Invalid username or password."
+msgstr "اسم المستخدم أو كلمة المرور غير صحيحة."
+
+# Footer
+msgid "Capture today, build tomorrow"
+msgstr "سجّل اليوم، وابنِ غداً"
+
+# Model fields
+msgid "Give your idea a short, descriptive title."
+msgstr "أعطِ فكرتك عنواناً قصيراً ووصفياً."
+
+msgid "Describe your idea in detail. URLs will be auto-linked."
+msgstr "اوصف فكرتك بالتفصيل. الروابط ستكون قابلة للنقر تلقائياً."
+
+msgid "Record or upload a voice note for this idea."
+msgstr "سجّل أو ارفع ملاحظة صوتية لهذه الفكرة."
+
+msgid "Created"
+msgstr "تاريخ الإنشاء"
+
+msgid "Updated"
+msgstr "تاريخ التحديث"
+
+msgid "Idea"
+msgstr "فكرة"
+
+msgid "Idea Image"
+msgstr "صورة الفكرة"
+
+msgid "Idea Images"
+msgstr "صور الفكرة"
+
+msgid "Image"
+msgstr "صورة"
+
+msgid "Caption"
+msgstr "تعليق"
+
+msgid "Caption (optional)"
+msgstr "تعليق (اختياري)"
+
+msgid "Uploaded"
+msgstr "تاريخ الرفع"
+
+msgid "Voice note must be less than 10 MB."
+msgstr "يجب أن تكون الملاحظة الصوتية أقل من 10 ميغابايت."
+
+msgid "Image must be less than 5 MB."
+msgstr "يجب أن تكون الصورة أقل من 5 ميغابايت."
+
+#: Plurals for ideas count
+msgid "%(counter)s idea captured"
+msgid_plural "%(counter)s ideas captured"
+msgstr[0] "لا توجد أفكار"
+msgstr[1] "فكرة واحدة مسجلة"
+msgstr[2] "فكرتان مسجلتان"
+msgstr[3] "%(counter)s أفكار مسجلة"
+msgstr[4] "%(counter)s فكرة مسجلة"
+msgstr[5] "%(counter)s فكرة مسجلة"
